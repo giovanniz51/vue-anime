@@ -43,7 +43,7 @@
         },
         methods: {
             search(e){
-                axios.get(`https://api.jikan.moe/v3/search/anime?q=${e.target.value}&page=1`)
+                axios.get(`https://cors-anywhere.herokuapp.com/https://api.jikan.moe/v3/search/anime?q=${e.target.value}&page=1`)
                     .then(res => this.animes = res.data.results)
             },
             hide(){

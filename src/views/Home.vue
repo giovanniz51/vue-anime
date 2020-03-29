@@ -1,6 +1,6 @@
 <template>
   <div class="home bg-dark">
-    <Hero :anime="animes[Math.floor(Math.random() * 50)]">
+    <Hero v-if="animes.length > 0" :anime="animes[Math.floor(Math.random() * 50)]">
       <img slot="img" src="https://static.giga.de/wp-content/uploads/2018/01/Animes-Kindheit-rcm950x0.png" class="d-block w-100" alt="...">
     </Hero>
     <div class="container my-5 text-white">
@@ -23,25 +23,19 @@
 import Hero from "@/components/Hero"
 import AnimeCard from "@/components/AnimeCard"
 
-import axios from "axios"
-
 export default {
   name: 'Home',
   components: {
     Hero,
     AnimeCard
   },
-  data(){
-    return {
-      animes: []
+  computed: {
+    animes() {
+      return this.$store.state.animes
     }
   },
-  computed() {
-    
-  },
   mounted(){
-    axios.get("https://private-anon-e5d408a1f8-jikan.apiary-proxy.com/v3/top/anime/1/tv")
-      .then(res => this.animes = res.data.top)
+    this.$store.dispatch("setAnimes")
   }
 }
 </script>
