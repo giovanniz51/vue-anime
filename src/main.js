@@ -5,6 +5,7 @@ import router from './router'
 import store from './store'
 import BaseButton from "@/components/BaseButton"
 import "../node_modules/bootstrap/dist/css/bootstrap.css"
+import "nprogress/nprogress.css"
 
 Vue.component("BaseButton", BaseButton)
 

@@ -16,6 +16,8 @@
 </script>
 
 <style lang="scss">
-
+ #nprogress .bar {
+   height: 50px!important;
+ }
 
 </style>

@@ -33,25 +33,17 @@
 import Hero from "@/components/Hero"
 import {mapState} from "vuex"
   export default {
-    props: ["id"],
+    props: ["id", "animeObj"],
     components: {
       Hero
     },
-    watch: {
-      $route(to, from, next) {
-        this.getContent(to.params.id)
-      }
-    },
     computed: {
       anime(){
-        return this.$store.getters.getAnime.info
+        return this.animeObj.info
       },
       videos(){
-        return this.$store.getters.getAnimeVideos
+        return this.animeObj.videos
       }
-    },
-    mounted(){
-      this.$store.dispatch("setAnime", this.id)
     }
   }
 </script>

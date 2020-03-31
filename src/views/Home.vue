@@ -29,13 +29,14 @@ export default {
     Hero,
     AnimeCard
   },
-  computed: {
-    animes() {
-      return this.$store.state.animes
+  props: {
+    animes: {
+      type: Array,
+      required: true
     }
   },
   mounted(){
-    this.$store.dispatch("setAnimes")
+   
   }
 }
 </script>
